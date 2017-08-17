@@ -1,6 +1,6 @@
 def main_menu ():
     #This iterates the program
-    name =  input ('Please enter your name')
+    name =  input ('Please enter the name')
     name = name.lower ()
 
 
@@ -40,7 +40,7 @@ def main_menu ():
 
 #My program begins here:
 fhand = input ('Please enter name of address book')
-name =  input ('Please enter your name')
+name =  input ('Please enter the name')
 name = name.lower ()
 
 addressbook = open ('address_book.txt')
