@@ -1,0 +1,78 @@
+def main_menu ():
+    #This iterates the program
+    name =  input ('Please enter your name')
+    name = name.lower ()
+
+
+    addressbook = open (fhand)
+
+    for line in addressbook:
+                record = line.split (':')
+                if record [0] == name:
+                   found = 'TRUE'
+                   break
+                else:
+                    found = 'FALSE'
+                    continue
+
+    if found == 'FALSE' :
+       print ('Sorry, name not found!')
+       ask = input ('Would you like to add this contact? Enter 1 for Yes and 2 for No')
+       if ask == '1' :
+          phone = input ('Please enter phone number of the new contact')
+          address = input ('Please enter address of the new contact')
+          with open (fhand, 'a') as myfile:
+               myfile.write ('\n'+ name +':' + phone + ':' + address)
+       elif ask == '2' :
+            print ('Okay')
+       mainmenu = input ('Would you like to search or add another name? Enter 1 for Yes and 2 to quit')
+       if mainmenu == '1':
+              main_menu ()
+       elif mainmenu == '2':
+              quit()
+    else:
+        print (record [0], record [1])
+        mainmenu = input ('Would you like to search or add another name? Enter 1 for Yes and 2 to quit')
+        if mainmenu == '1':
+               main_menu ()
+        elif mainmenu == '2':
+               quit()
+
+#My program begins here:
+fhand = input ('Please enter name of address book')
+name =  input ('Please enter your name')
+name = name.lower ()
+
+addressbook = open ('address_book.txt')
+
+for line in addressbook:
+            record = line.split (':')
+            if record [0] == name:
+               found = 'TRUE'
+               break
+            else:
+                found = 'FALSE'
+                continue
+
+if found == 'FALSE' :
+   print ('Sorry, name not found!')
+   ask = input ('Would you like to add this contact? Enter 1 for Yes and 2 for No')
+   if ask == '1' :
+      phone = input ('Please enter phone number of the new contact')
+      address = input ('Please enter address of the new contact')
+      with open ('address_book.txt', 'a') as myfile:
+           myfile.write ('\n'+ name +':' + phone + ':' + address)
+   elif ask == '2' :
+        print ('Okay')
+   mainmenu = input ('Would you like to search or add another name? Enter 1 for Yes and 2 to quit')
+   if mainmenu == '1':
+          main_menu ()
+   elif mainmenu == '2':
+          quit()
+else:
+    print (record [0], record [1])
+    mainmenu = input ('Would you like to search or add another name? Enter 1 for Yes and 2 to quit')
+    if mainmenu == '1':
+           main_menu ()
+    elif mainmenu == '2':
+           quit()
