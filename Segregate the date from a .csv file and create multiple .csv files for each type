@@ -1,0 +1,14 @@
+This data was obtained from a competition posted on a website called Sanaitics. The FMCG Sales Data_9684.csv file had data for each state of India spanned over 12 months. The task was to segregate the data for each state for 12 months and create multiple .csv files for each State.
+My R code is as follows:
+
+
+#Set a working directory to obtain the given .csv file and to save the final output
+setwd("C:/..........")
+# Read the given .csv file and create a data frame
+mydata = read.csv ( "FMCG Sales Data_9684.csv", header = TRUE)
+#Divide and segregate the data for 12 months of each State 
+d <- split(mydata, mydata$State, drop = FALSE)
+#Create multiple .csv files to write the segregated data for each State with a loop function 
+newfiles <- lapply(seq_along(d), function(i){
+   write.csv(d[[i]], file=paste0('State', i, '.csv'), row.names=FALSE)
+})
